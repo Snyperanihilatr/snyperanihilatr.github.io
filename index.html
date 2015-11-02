@@ -1,12 +1,50 @@
 <!DOCTYPE html>
+
+<style>
+.river_off, #home:hover .river_on {
+	display:none
+}
+
+.river_on, #home:hover, .river_off {
+	display:block
+}
+</style>
 <html>
+<head>
+<script>
+function myHoverMid() {
+	document.getElementById("main").src = "http://i.imgur.com/X8rKt3Q.gif";
+}
+
+function myLeave() {
+	document.getElementById("main").src = "http://i.imgur.com/RqT2KSj.jpg"
+}
+
+function myHoverRiver() {
+	document.getElementById("main").src = "jungle.gif";
+}
+
+function myHoverJungle() {
+	document.getElementById("main").src = "jungleReal.gif";
+}
+
+</script>
+</head>
+
 <body bgcolor="#000000">
-<img src="http://i.imgur.com/02PJmJ8.gif" width="1920" height="1080" alt="Summoner's Rift"
-usemap="summoners">
+<div style="position: relative; top: 0; left: 0;">
+	<img src="http://i.imgur.com/RqT2KSj.jpg" id="main" style="position: relative; top:0; left: 0; z-index: 1;" width="1920" height="1080" alt="Summoner's Rift"
+	usemap="summoners">
+	
+</div>
 
 <map name="summoners">
-	<area shape="rect" coords="0,275,625,425" href="river%20page.html">
-	<area shape="rect" coords="0,550,625,700" href="jungle%20page.html">
-	<area shape="rect" coords="0,825,625,975" href="mid%20lane%20page.html">
+	<area shape="rect" onmouseover='myHoverRiver()' onmouseout='myLeave()' coords="0,155,627,310" 
+	href="river.html">
+	<area shape="rect" onmouseover='myHoverJungle()' onmouseout='myLeave()' coords="0,311,627,465" href="jungle.html">
+	<area shape="rect" onmouseover='myHoverMid()' onmouseout='myLeave()' coords="0,467,627,621" href="mid.html">
 </map>
+
+
+<p id="gif"> </p>
 </html>
